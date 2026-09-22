@@ -1,0 +1,40 @@
+package TutorialsPack;
+
+import java.util.Scanner; // Allows us to get input from the user
+
+public class StorePurchaseCalculator {
+
+	public static void main(String[] args) {
+		
+		// Create a Scanner to get input from the keyboard
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("--- Part 1: Store Checkout ---");
+		
+		// Ask the user for the number of items
+		System.out.print("Enter item quantity: ");
+		int quantity = input.nextInt();
+		
+		// Ask the user for the price of one item
+		System.out.print("Enter price per item: ");
+		double price = input.nextDouble();
+		
+		// Calculate the subtotal
+		double subtotal = quantity * price;
+		
+		// Calculate the sales tax
+		double salesTax = subtotal * 0.08625;
+		
+		// Calculate the total cost
+		double total = subtotal + salesTax;
+		
+		// Display the subtotal
+		System.out.println("Subtotal: $" + subtotal);
+		
+		// Display the sales tax
+		System.out.println("Sales Tax (8.625%): $" + salesTax);
+		
+		// Display the final total
+		System.out.println("Total Due: $" + total);
+	}
+}
