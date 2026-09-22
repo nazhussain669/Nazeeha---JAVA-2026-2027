@@ -1,0 +1,53 @@
+package TutorialsPack;
+
+import java.util.Scanner; // Allows us to get input from the user
+
+public class CashierBillsBreakdown {
+
+	public static void main(String[] args) {
+		
+		// Create a Scanner to get input from the keyboard
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("--- Part 3: Cashier Bills Breakdown ---");
+		
+		// Ask the user how much cash they paid
+		System.out.print("Enter cash paid ($ whole dollars): ");
+		int cashPaid = input.nextInt();
+		
+		// Ask the user for the total purchase cost
+		System.out.print("Enter total purchase cost ($ whole dollars): ");
+		int purchaseCost = input.nextInt();
+		
+		// Calculate the amount of change
+		int change = cashPaid - purchaseCost;
+		
+		// Divide by 20 to find the number of $20 bills
+		int twenties = change / 20;
+		
+		// Use % to find the money left after the $20 bills
+		int leftover = change % 20;
+		
+		// Divide the leftover amount by 10
+		int tens = leftover / 10;
+		
+		// Find what is left after the $10 bills
+		leftover = leftover % 10;
+		
+		// Divide the leftover amount by 5
+		int fives = leftover / 5;
+		
+		// The remaining amount is the number of $1 bills
+		int ones = leftover % 5;
+		
+		// Display the purchase cost
+		System.out.println("Total Purchase Cost: $" + purchaseCost);
+		
+		// Display the change breakdown
+		System.out.println("Change Breakdown:");
+		System.out.println("$20 Bills: " + twenties);
+		System.out.println("$10 Bills: " + tens);
+		System.out.println("$5 Bills: " + fives);
+		System.out.println("$1 Bills: " + ones);
+	}
+}
