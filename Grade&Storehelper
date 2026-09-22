@@ -1,0 +1,15 @@
+package TutorialsPack;
+
+import java.util.Scanner; // Allows us to get input from the user
+
+public class GradeAndStoreHelper {
+
+	public static void main(String[] args) {
+		
+		// Create a Scanner to get input from the keyboard
+		Scanner input = new Scanner(System.in);
+		
+		// Display a message to show that the Scanner is ready
+		System.out.println("Scanner is ready.");
+	}
+}
