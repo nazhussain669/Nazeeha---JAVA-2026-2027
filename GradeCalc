@@ -1,0 +1,46 @@
+package TutorialsPack;
+
+import java.util.Scanner; // Allows us to get input from the user
+
+public class GradeCalculation {
+
+	public static void main(String[] args) {
+		
+		// Create a Scanner to get input from the keyboard
+		Scanner input = new Scanner(System.in);
+		
+		System.out.println("--- Part 2: Grade Calculation ---");
+		
+		// Ask the user for the first test score
+		System.out.print("Enter Score 1 (int): ");
+		int score1 = input.nextInt();
+		
+		// Ask the user for the second test score
+		System.out.print("Enter Score 2 (int): ");
+		int score2 = input.nextInt();
+		
+		// Ask the user for the third test score
+		System.out.print("Enter Score 3 (int): ");
+		int score3 = input.nextInt();
+		
+		// Add the three scores together
+		int sum = score1 + score2 + score3;
+		
+		// Cast the sum to double before dividing
+		// This prevents integer division from removing the decimal
+		double average = (double) sum / 3;
+		
+		// Cast the average to int
+		// This removes the decimal part
+		int finalGrade = (int) average;
+		
+		// Display the total of the three scores
+		System.out.println("Raw Sum: " + sum);
+		
+		// Display the exact average
+		System.out.println("Exact Average (with casting): " + average);
+		
+		// Display the final whole-number grade
+		System.out.println("Final Integer Grade (truncated cast): " + finalGrade);
+	}
+}
