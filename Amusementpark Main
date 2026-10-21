@@ -1,0 +1,25 @@
+package javaPack;
+
+public class AmusementParkMain {
+    
+    public static void main(String[] args) {
+        // 1. Create a RidePass object using the constructor
+        // Parameters: balance (50.0), isVIP (false), age (15)[cite: 12]
+        RidePass visitorPass = new RidePass(50.0, false, 15);
+        
+        // 2. Test the canRide method
+        // Parameters: rideCost (20.0), minAge (10), isPeakHour (false), requiresVIP (false)[cite: 12]
+        boolean canBoard = visitorPass.canRide(20.0, 10, false, false);
+        System.out.println("Can the visitor board the ride? " + canBoard);
+        
+        // 3. Display balance before processing the ride payment
+        System.out.println("Current balance: $" + visitorPass.getBalance());
+        
+        // 4. Test the processRide method with a base cost of 30.0
+        // (Age 15 pays full baseCost since they are not a child <= 12 or senior >= 65)[cite: 12]
+        visitorPass.processRide(30.0);
+        
+        // 5. Display the updated balance after the charge
+        System.out.println("Balance after ride payment: $" + visitorPass.getBalance());
+    }
+}
