@@ -1,0 +1,9 @@
+package javaPack;
+
+public class General_Information {
+
+    public static void main(String[] args) {
+        // Instantiates the input collector class, matching your tutorial style
+        CollectRideInfo collect = new CollectRideInfo();
+    }
+}
