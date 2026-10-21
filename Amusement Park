@@ -1,0 +1,80 @@
+package javaPack;
+
+public class RidePass {
+    
+    // Private instance fields to track pass information[cite: 12]
+    private double balance; // current pass balance in dollars[cite: 12]
+    private boolean isVIP;  // true if pass has VIP status for peak access[cite: 12]
+    private int age;        // age of pass holder in years[cite: 12]
+
+    /** 
+     * Constructs a RidePass with balance b, VIP status v, and age a[cite: 12]
+     */
+    public RidePass(double b, boolean v, int a) {
+        balance = b;
+        isVIP = v;
+        age = a;
+    }
+
+    // Accessor methods
+    public double getBalance() { 
+        return balance; 
+    }
+    
+    public boolean getVIP() { 
+        return isVIP; 
+    }
+    
+    public int getAge() { 
+        return age; 
+    }
+
+    /** 
+     * Deducts cost from balance. Guaranteed balance >= cost[cite: 12]
+     */
+    public void charge(double cost) {
+        balance -= cost;
+    }
+
+    /** 
+     * Part A - Ride Access Validation
+     * Returns true if the pass holder meets all criteria to board the ride; returns false otherwise[cite: 12].
+     * Uses logical operators (&&, ||, !) as practiced in the boolean tutorials[cite: 7].
+     */
+    public boolean canRide(double rideCost, int minAge, boolean isPeakHour, boolean requiresVIP) {
+        // Condition 1: Pass holder's age is at least equal to minAge[cite: 12]
+        boolean ageValid = (age >= minAge);
+        
+        // Condition 2: Current pass balance is greater than or equal to rideCost[cite: 12]
+        boolean balanceValid = (balance >= rideCost);
+        
+        // Condition 3: If isPeakHour is true, visitor must be VIP OR ride must not require VIP[cite: 12]
+        // Using short-circuit evaluation operators (||, !)[cite: 7]
+        boolean peakValid = !isPeakHour || isVIP || !requiresVIP;
+
+        // All conditions must be met using logical AND (&&)[cite: 7, 12]
+        return ageValid && balanceValid && peakValid;
+    }
+
+    /** 
+     * Part B - Processing Ride Payment
+     * Calculates the final discounted cost based on age and processes the charge[cite: 12].
+     * Uses if-else statements as covered in the tutorial[cite: 7].
+     */
+    public void processRide(double baseCost) {
+        double finalCost = baseCost;
+
+        // Children (age 12 or under) receive a 20% discount (pay 80%)[cite: 12]
+        if (age <= 12) {
+            finalCost = baseCost * 0.80;
+        }
+        // Seniors (age 65 or older) receive a 30% discount (pay 70%)[cite: 12]
+        else if (age >= 65) {
+            finalCost = baseCost * 0.70;
+        }
+        // All other age groups pay the full baseCost (no change needed)[cite: 12]
+
+        // Deduct the final cost from the pass balance
+        charge(finalCost);
+    }
+}
