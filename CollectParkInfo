@@ -1,0 +1,55 @@
+package javaPack;
+
+import java.util.Scanner; // Import Scanner for user input
+
+public class CollectRideInfo {
+    Scanner allinput = new Scanner(System.in);
+
+    // Constructor automatically runs the gatherInfo method when called
+    public CollectRideInfo() {
+        gatherInfo();
+    }
+
+    public void gatherInfo() {
+        // 1. Collect pass holder details from keyboard
+        System.out.print("Enter your pass balance: ");
+        double balance = allinput.nextDouble();
+
+        System.out.print("Are you a VIP? (true/false): ");
+        boolean isVIP = allinput.nextBoolean();
+
+        System.out.print("Enter your age: ");
+        int age = allinput.nextInt();
+
+        // Create the RidePass object using user inputs
+        RidePass userPass = new RidePass(balance, isVIP, age);
+
+        // 2. Collect ride criteria from keyboard
+        System.out.print("Enter ride cost: ");
+        double rideCost = allinput.nextDouble();
+
+        System.out.print("Enter minimum age required: ");
+        int minAge = allinput.nextInt();
+
+        System.out.print("Is it peak hour? (true/false): ");
+        boolean isPeakHour = allinput.nextBoolean();
+
+        System.out.print("Does the ride require VIP? (true/false): ");
+        boolean requiresVIP = allinput.nextBoolean();
+
+        // Test the canRide method
+        boolean canBoard = userPass.canRide(rideCost, minAge, isPeakHour, requiresVIP);
+        System.out.println("\n--- Results ---");
+        System.out.println("Can the visitor board the ride? " + canBoard);
+        System.out.println("Starting balance: $" + userPass.getBalance());
+
+        // 3. Process the ride payment
+        System.out.print("\nEnter base cost of the ride to process payment: ");
+        double baseCost = allinput.nextDouble();
+
+        userPass.processRide(baseCost);
+        System.out.println("Balance after ride payment: $" + userPass.getBalance());
+        
+        allinput.close();
+    }
+}
