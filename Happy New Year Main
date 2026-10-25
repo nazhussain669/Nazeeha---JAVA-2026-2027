@@ -1,0 +1,22 @@
+package javaPack;
+
+import java.util.Scanner;
+
+public class RunCountdown {
+    
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // 1. Get the starting number from the user
+        System.out.print("Enter the countdown starting number: ");
+        int inputNumber = scanner.nextInt();
+
+        // 2. Create the countdown object using the constructor
+        NewYearCountdown countdown = new NewYearCountdown(inputNumber);
+
+        // 3. Run the countdown method
+        countdown.startCountdown();
+
+        scanner.close();
+    }
+}
