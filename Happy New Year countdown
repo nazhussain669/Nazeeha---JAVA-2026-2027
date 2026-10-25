@@ -1,0 +1,24 @@
+package javaPack;
+
+public class NewYearCountdown {
+    
+    // Private variable to store the starting number
+    private int startNumber;
+
+    // Constructor: initializes the countdown object
+    public NewYearCountdown(int startNumber) {
+        this.startNumber = startNumber;
+    }
+
+    // Method using a while loop to perform the countdown
+    public void startCountdown() {
+        int current = startNumber;
+
+        while (current >= 0) {
+            System.out.println(current);
+            current--; // Decrease the number by 1 each time
+        }
+
+        System.out.println("Happy New Year!");
+    }
+}
