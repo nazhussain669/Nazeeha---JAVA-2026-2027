@@ -2,26 +2,33 @@ package javaPack;
 
 import java.util.Scanner;
 
-public class CollectInfo
+public class CollectInfo 
 {
-    String fname, lname;
-    Scanner allinput = new Scanner(System.in);
-
-    public CollectInfo()
-    {
-        AllInfo();
-    }
-
-    public void AllInfo()
-    {
-        System.out.print("Enter your first name: ");
-        fname = allinput.nextLine();
-
-        System.out.print("Enter your last name: ");
-        lname = allinput.nextLine();
-
-        NameTag tag = new NameTag(fname, lname);
-
-        System.out.println("Formatted Name: " + tag.getFormattedName());
-    }
+	static Scanner allinfo = new Scanner(System.in);
+	
+	public CollectInfo()
+	{
+		AskInfo();
+	}
+	
+	public void AskInfo()
+	{
+		float totalgrades = 0;
+		float finalgrade = 0;
+		
+		System.out.print("How many grades would you like to average?");
+		int numgrades = allinfo.nextInt();
+		int gradenum = numgrades;
+		
+		while(numgrades > 0)
+		{
+			System.out.print("Enter grade: ");
+			float entergrade = allinfo.nextFloat();
+			totalgrades = totalgrades + entergrade;
+			numgrades = numgrades - 1;
+		}
+		
+		finalgrade = totalgrades / gradenum;
+		System.out.print("Average = " + finalgrade);
+	}
 }
