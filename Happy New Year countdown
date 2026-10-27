@@ -1,24 +1,27 @@
 package javaPack;
 
-public class NewYearCountdown {
-    
-    // Private variable to store the starting number
-    private int startNumber;
+import java.util.Scanner;
 
-    // Constructor: initializes the countdown object
-    public NewYearCountdown(int startNumber) {
-        this.startNumber = startNumber;
-    }
-
-    // Method using a while loop to perform the countdown
-    public void startCountdown() {
-        int current = startNumber;
-
-        while (current >= 0) {
-            System.out.println(current);
-            current--; // Decrease the number by 1 each time
-        }
-
-        System.out.println("Happy New Year!");
-    }
+public class CountdownInfo 
+{
+	static Scanner allinfo = new Scanner(System.in);
+	
+	public CountdownInfo()
+	{
+		startCountdown();
+	}
+	
+	public void startCountdown()
+	{
+		System.out.print("Enter the countdown starting number: ");
+		int current = allinfo.nextInt();
+		
+		while(current >= 0)
+		{
+			System.out.println(current);
+			current = current - 1;
+		}
+		
+		System.out.print("Happy New Year!");
+	}
 }
