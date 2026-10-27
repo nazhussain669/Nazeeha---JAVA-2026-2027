@@ -1,0 +1,26 @@
+package javaPack;
+
+import java.util.Scanner;
+
+public class CountdownInfo 
+{
+	static Scanner allinfo = new Scanner(System.in);
+	
+	public CountdownInfo()
+	{
+		startCountdown(); //starts count down
+	}
+	
+	public void startCountdown()
+	{
+		System.out.print("Enter the countdown starting number: ");
+		int current = allinfo.nextInt();
+		
+		for(int i = current; i >= 0; i--)
+		{
+			System.out.println(i);
+		}
+		
+		System.out.print("Happy New Year!");
+	}
+}
