@@ -1,0 +1,8 @@
+package javaPack;
+
+public class GradeInfo {
+    public static void main(String[] args) {
+        // Create a constructor to pass information using an object
+        CollectGrades collectGrades = new CollectGrades();
+    }
+}
