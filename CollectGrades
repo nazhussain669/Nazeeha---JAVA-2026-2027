@@ -1,0 +1,66 @@
+package javaPack;
+
+import java.util.Scanner;
+
+public class CollectGrades {
+    
+    // Scanner for user inputs
+    static Scanner scanner = new Scanner(System.in);
+
+    // Constructor method
+    public CollectGrades() {
+        processGrades();
+    }
+
+    public void processGrades() {
+        System.out.print("Enter the number of grades: ");
+        int numberOfGrades = scanner.nextInt();
+        
+        double totalSum = 0;
+
+        // For loop handles the starting point, condition, and increment in one line
+        for (int index = 1; index <= numberOfGrades; index++) {
+            System.out.print("Enter grade " + index + ": ");
+            double currentGrade = scanner.nextDouble();
+
+            // Check if passing or failing
+            if (currentGrade >= 65.0) {
+                System.out.println("Status: Passing");
+            } else {
+                System.out.println("Status: Failing");
+            }
+
+            totalSum += currentGrade; // Add to total sum
+        }
+
+        // Calculate average
+        double gradeAverage = 0;
+        if (numberOfGrades > 0) {
+            gradeAverage = totalSum / numberOfGrades;
+        }
+
+        // Convert average to 0 - 4 scale rating
+        int ratingScale = convertScale(gradeAverage);
+
+        // Print results
+        System.out.println("\n--------------------------");
+        System.out.println("Numeric Average: " + gradeAverage);
+        System.out.println("Grade Rating Scale (0-4): " + ratingScale);
+        System.out.println("--------------------------");
+    }
+
+    // Helper method to determine the 0 - 4 scale rating
+    private int convertScale(double average) {
+        if (average >= 90 && average <= 100) {
+            return 4;
+        } else if (average >= 80 && average < 90) {
+            return 3;
+        } else if (average >= 70 && average < 80) {
+            return 2;
+        } else if (average >= 65 && average < 70) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+}
