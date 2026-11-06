@@ -39,28 +39,24 @@ public class CollectGrades {
             gradeAverage = totalSum / numberOfGrades;
         }
 
-        // Convert average to 0 - 4 scale rating
-        int ratingScale = convertScale(gradeAverage);
+        // Determine 0 - 4 scale rating directly (without a helper method)
+        int ratingScale = 0;
+        if (gradeAverage >= 90 && gradeAverage <= 100) {
+            ratingScale = 4;
+        } else if (gradeAverage >= 80 && gradeAverage < 90) {
+            ratingScale = 3;
+        } else if (gradeAverage >= 70 && gradeAverage < 80) {
+            ratingScale = 2;
+        } else if (gradeAverage >= 65 && gradeAverage < 70) {
+            ratingScale = 1;
+        } else {
+            ratingScale = 0;
+        }
 
         // Print results
         System.out.println("\n--------------------------");
         System.out.println("Numeric Average: " + gradeAverage);
         System.out.println("Grade Rating Scale (0-4): " + ratingScale);
         System.out.println("--------------------------");
-    }
-
-    // Helper method to determine the 0 - 4 scale rating
-    private int convertScale(double average) {
-        if (average >= 90 && average <= 100) {
-            return 4;
-        } else if (average >= 80 && average < 90) {
-            return 3;
-        } else if (average >= 70 && average < 80) {
-            return 2;
-        } else if (average >= 65 && average < 70) {
-            return 1;
-        } else {
-            return 0;
-        }
     }
 }
