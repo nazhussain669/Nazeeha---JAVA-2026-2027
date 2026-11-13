@@ -1,17 +1,17 @@
 public class BankAccount {
-    // 1. Declare private instance variables here[cite: 6]
+    // 1. Declare private instance variables here[cite: 6, 7]
     private String accountHolder;
     private int accountNumber;
     private double balance;
 
-    // 2. Constructor[cite: 6]
+    // 2. Constructor[cite: 6, 7]
     public BankAccount(String accountHolder, int accountNumber) {
         this.accountHolder = accountHolder;
         this.accountNumber = accountNumber;
         this.balance = 0.0;
     }
 
-    // 3. Accessor Methods (Getters)[cite: 6]
+    // 3. Accessor Methods (Getters)[cite: 6, 7]
     public String getAccountHolder() {
         return accountHolder;
     }
@@ -24,7 +24,7 @@ public class BankAccount {
         return balance;
     }
 
-    // 4. Mutator Methods (Setters & Transactions)[cite: 6]
+    // 4. Mutator Methods (Setters & Transactions)[cite: 6, 7]
     public void setAccountHolder(String newName) {
         if (newName != null && !newName.equals("")) {
             this.accountHolder = newName;
