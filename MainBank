@@ -1,13 +1,35 @@
+import java.util.Scanner;
+
 public class MainBank {
     public static void main(String[] args) {
-        // Create the BankAccount object and run the trace scenario[cite: 1, 7]
-        BankAccount acct = new BankAccount("Alex", 5041);
-        
-        acct.deposit(150.0);
-        boolean check1 = acct.withdraw(200.0);
-        acct.deposit(-50.0);
-        boolean check2 = acct.withdraw(50.0);
-        
-        System.out.println("C1:" + check1 + " C2:" + check2 + " Bal:" + acct.getBalance());[cite: 7]
+        Scanner input = new Scanner(System.in);
+
+        // Ask user for account information[cite: 6]
+        System.out.print("Enter account holder name: ");
+        String name = input.nextLine();
+
+        System.out.print("Enter account number: ");
+        int accNum = input.nextInt();
+
+        // Create the BankAccount object using user inputs[cite: 1, 6]
+        BankAccount acct = new BankAccount(name, accNum);
+
+        // Ask user for deposit amount[cite: 6]
+        System.out.print("Enter amount to deposit: ");
+        double depAmount = input.nextDouble();
+        acct.deposit(depAmount);
+
+        // Ask user for withdrawal amount[cite: 6]
+        System.out.print("Enter amount to withdraw: ");
+        double withAmount = input.nextDouble();
+        boolean success = acct.withdraw(withAmount);
+
+        // Display the results using accessors[cite: 1, 2]
+        System.out.println("\nAccount Holder: " + acct.getAccountHolder());
+        System.out.println("Account Number: " + acct.getAccountNumber());
+        System.out.println("Withdrawal Successful: " + success);
+        System.out.println("Final Balance: $" + acct.getBalance());
+
+        input.close();
     }
 }
