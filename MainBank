@@ -1,0 +1,13 @@
+public class MainBank {
+    public static void main(String[] args) {
+        // Create the BankAccount object and run the trace scenario[cite: 1, 7]
+        BankAccount acct = new BankAccount("Alex", 5041);
+        
+        acct.deposit(150.0);
+        boolean check1 = acct.withdraw(200.0);
+        acct.deposit(-50.0);
+        boolean check2 = acct.withdraw(50.0);
+        
+        System.out.println("C1:" + check1 + " C2:" + check2 + " Bal:" + acct.getBalance());[cite: 7]
+    }
+}
