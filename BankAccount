@@ -1,0 +1,53 @@
+public class BankAccount {
+    // 1. Declare private instance variables here[cite: 6]
+    private String accountHolder;
+    private int accountNumber;
+    private double balance;
+
+    // 2. Constructor[cite: 6]
+    public BankAccount(String accountHolder, int accountNumber) {
+        this.accountHolder = accountHolder;
+        this.accountNumber = accountNumber;
+        this.balance = 0.0;
+    }
+
+    // 3. Accessor Methods (Getters)[cite: 6]
+    public String getAccountHolder() {
+        return accountHolder;
+    }
+
+    public int getAccountNumber() {
+        return accountNumber;
+    }
+
+    public double getBalance() {
+        return balance;
+    }
+
+    // 4. Mutator Methods (Setters & Transactions)[cite: 6]
+    public void setAccountHolder(String newName) {
+        if (newName != null && !newName.equals("")) {
+            this.accountHolder = newName;
+        }
+    }
+
+    public void deposit(double amount) {
+        // Implement validation: amount must be positive[cite: 7]
+        if (amount > 0) {
+            this.balance += amount;
+        } else {
+            System.out.println("Error! Deposit amount must be positive!");
+        }
+    }
+
+    public boolean withdraw(double amount) {
+        // Implement validation: positive amount and sufficient funds[cite: 7]
+        if (amount > 0 && this.balance >= amount) {
+            this.balance -= amount;
+            return true;
+        } else {
+            System.out.println("Error! Invalid withdrawal amount or insufficient funds!");
+            return false;
+        }
+    }
+}
